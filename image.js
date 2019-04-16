@@ -6,7 +6,7 @@ function addImageifValid(){
         var picNode = document.createElement('img');
         picNode.className = URLtoload;
         picNode.src = URLtoload;
-        document.body.appendChild(picNode)
+        document.body.appendChild(picNode);
     }
 }
 
@@ -14,7 +14,8 @@ function removeImageifValid(){
     var URLtoremovefrom = document.getElementById('url-field').value;
     var nodestoremove = document.getElementsByClassName(URLtoremovefrom);
     if(nodestoremove){
-        console.log(nodestoremove);
-        nodestoremove.remove();
+        for (var i = nodestoremove.length - 1; i >= 0; --i){
+            nodestoremove[i].parentNode.removeChild(nodestoremove[i]);
+        }
     }
 }
