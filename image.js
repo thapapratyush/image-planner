@@ -6,7 +6,7 @@ function addImageifValid(){
         var picNode = document.createElement('img');
         picNode.className = URLtoload;
         picNode.src = URLtoload;
-        document.body.appendChild(picNode);
+        document.getElementById('picture-container').appendChild(picNode);
     }
 }
 
@@ -19,3 +19,5 @@ function removeImageifValid(){
         }
     }
 }
+
+function 
