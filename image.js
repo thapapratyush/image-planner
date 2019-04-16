@@ -11,5 +11,10 @@ function addImageifValid(){
 }
 
 function removeImageifValid(){
-    
+    var URLtoremovefrom = document.getElementById('url-field').value;
+    var nodestoremove = document.getElementsByClassName(URLtoremovefrom);
+    if(nodestoremove){
+        console.log(nodestoremove);
+        nodestoremove.remove();
+    }
 }
