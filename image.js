@@ -1,5 +1,9 @@
+function getLatestURL(){
+    return document.getElementById('url-field').value;
+}
+
 function addImageifValid(){
-    var URLtoload = document.getElementById('url-field').value;
+    var URLtoload = getLatestURL();
     if (!URLtoload){
         console.log("Not a valid URL");
     }else{
@@ -11,7 +15,7 @@ function addImageifValid(){
 }
 
 function removeImageifValid(){
-    var URLtoremovefrom = document.getElementById('url-field').value;
+    var URLtoremovefrom = getLatestURL();
     var nodestoremove = document.getElementsByClassName(URLtoremovefrom);
     if(nodestoremove){
         for (var i = nodestoremove.length - 1; i >= 0; --i){
@@ -20,4 +24,6 @@ function removeImageifValid(){
     }
 }
 
-function 
+function validateURL(){
+
+}
