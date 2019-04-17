@@ -24,7 +24,7 @@ function removeImageifValid(){
     }
 }
 
-function validateURL(callback, timeout){
+function validateURL(timeoutT){
     return new Promise(function (resolve, reject) {
         var timeout = timeoutT || 5000;
         var timer, img = new Image();
