@@ -24,6 +24,22 @@ function removeImageifValid(){
     }
 }
 
-function validateURL(){
-
+function validateURL(callback, timeout){
+    return new Promise(function (resolve, reject) {
+        var timeout = timeoutT || 5000;
+        var timer, img = new Image();
+        img.onerror = img.onabort = function () {
+            clearTimeout(timer);
+            reject("The image could not be loaded");
+        };
+        img.onload = function () {
+            clearTimeout(timer);
+            resolve("Successfully loaded image");
+        };
+        timer = setTimeout(function () {
+            img.src = "";
+            reject("Image couldn't be loaded due to timeout");
+        }, timeout);
+        img.src = getLatestURL();
+    });
 }
