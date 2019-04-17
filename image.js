@@ -49,6 +49,8 @@ function validateURL(timeoutT){
         }, timeout);
         img.src = getLatestURL();
     });
+    } else {
+        printErrorMsg("Image URL is invalid");
     }
 }
 
