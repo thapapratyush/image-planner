@@ -9,17 +9,21 @@ function addImageifValid(){
 
 function populateimagenode(img){
     clearErrorMsg();
-    img.className = getLatestURL();
+    img.className = "img-class";
     document.getElementById('picture-container').appendChild(img);
 }
 
 function removeImageifValid(){
     if (supportsRendering()){
-        var nodestoremove = document.getElementsByClassName(URLtoremovefrom);
-        if(nodestoremove){
+        var nodestoremove = document.getElementsByClassName("img-class");
+        if (nodestoremove.length != 0){
             for (var i = nodestoremove.length - 1; i >= 0; --i){
-                nodestoremove[i].parentNode.removeChild(nodestoremove[i]);
-        }
+                if (nodestoremove[i].src==getLatestURL()) {
+                    nodestoremove[i].parentNode.removeChild(nodestoremove[i]);
+                }
+            }
+        } else {
+            printErrorMsg("Image not found cannot delete!")
         }
     } else {
         printErrorMsg("Image URL is invalid. Can't delete the image");
