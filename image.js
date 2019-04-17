@@ -30,6 +30,7 @@ function validateURL(timeoutT){
         var timer, img = new Image();
         img.onerror = img.onabort = function () {
             clearTimeout(timer);
+            printErrorMsg("The image could not be loaded");
             reject("The image could not be loaded");
         };
         img.onload = function () {
@@ -38,8 +39,13 @@ function validateURL(timeoutT){
         };
         timer = setTimeout(function () {
             img.src = "";
+            printErrorMsg("Image couldn't be loaded due to timeout");
             reject("Image couldn't be loaded due to timeout");
         }, timeout);
         img.src = getLatestURL();
     });
+}
+
+function printErrorMsg(errormsg){
+    document.getElementById('error-container').innerHTML = errormsg;
 }
