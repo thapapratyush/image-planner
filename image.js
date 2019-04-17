@@ -14,12 +14,15 @@ function populateimagenode(img){
 }
 
 function removeImageifValid(){
-    var URLtoremovefrom = getLatestURL();
-    var nodestoremove = document.getElementsByClassName(URLtoremovefrom);
-    if(nodestoremove){
-        for (var i = nodestoremove.length - 1; i >= 0; --i){
-            nodestoremove[i].parentNode.removeChild(nodestoremove[i]);
+    if (supportsRendering()){
+        var nodestoremove = document.getElementsByClassName(URLtoremovefrom);
+        if(nodestoremove){
+            for (var i = nodestoremove.length - 1; i >= 0; --i){
+                nodestoremove[i].parentNode.removeChild(nodestoremove[i]);
         }
+        }
+    } else {
+        printErrorMsg("Image URL is invalid. Can't delete the image");
     }
 }
 
