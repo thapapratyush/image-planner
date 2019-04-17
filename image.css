@@ -11,3 +11,11 @@
     width: auto;
     height: auto;
 }
+
+.error-container{
+	color: red;
+}
+
+.wrapper{
+    text-align:center
+}
