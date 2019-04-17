@@ -4,14 +4,13 @@ function getLatestURL(){
 
 function addImageifValid(){
     var URLtoload = getLatestURL();
-    if (!URLtoload){
-        console.log("Not a valid URL");
-    }else{
+    validateURL().then(function(){
+        clearErrorMsg();
         var picNode = document.createElement('img');
         picNode.className = URLtoload;
         picNode.src = URLtoload;
         document.getElementById('picture-container').appendChild(picNode);
-    }
+    }, printErrorMsg("Picture couldn't be loaded"));
 }
 
 function removeImageifValid(){
@@ -48,4 +47,8 @@ function validateURL(timeoutT){
 
 function printErrorMsg(errormsg){
     document.getElementById('error-container').innerHTML = errormsg;
+}
+
+function clearErrorMsg(){
+    document.getElementById('error-container').innerHTML = "";
 }
